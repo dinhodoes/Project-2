@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   resource :session, only: [:new, :create, :destroy]
 
+  root 'inventories#index'
+
   get 'inventories' => 'inventories#index', as: :inventories
   get 'inventories/:id/edit' => 'inventories#edit', as: :edit_inventory
   put 'inventories/:id' => 'inventories#update'
