@@ -1,0 +1,8 @@
+<h1>Inventories#new</h1>
+<p>Find me in app/views/inventories/new.html.erb</p>
+
+<%= form_for @inventory do |f| %>
+ <%= f.text_field :name %>
+ <%= f.text_field :qty_on_hand %>
+ <%= f.submit %>
+<% end %>
