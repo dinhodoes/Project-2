@@ -1,0 +1,9 @@
+		
+ <h1>Log in</h1>
+ 
+ 	<%= form_for @customer, {url:sessions_path} do |f| %>	
+	<%= f.text_field :email, placeholder: "Email Address" %>
+	<%= f.password_field :password, placeholder: "Password" %>
+	<%= f.submit %>
+
+<% end %>

@@ -1,23 +1,28 @@
 Rails.application.routes.draw do
   
-  resource :session, only: [:new, :create, :destroy]
 
-  root 'inventories#index'
+  root 'customers#index'
+
 
   get 'inventories' => 'inventories#index', as: :inventories
   get 'inventories/:id/edit' => 'inventories#edit', as: :edit_inventory
   put 'inventories/:id' => 'inventories#update'
-  patch 'inventories/:id' => 'inventories#update'
+  patch 'inventories/:id' => 'inventories#update', as: :udpate_inventory
   delete 'inventories/:id' => 'inventories#destroy', as: :inventory
   get 'inventories/new' => 'inventories#new', as: :new_inventory
   post 'inventories' => 'inventories#create'
   
+  # resources :customers
   get 'customers' => 'customers#index'
   get 'customers/new' => 'customers#new'
   post 'customers' => 'customers#create'
-  
+  get 'customers/home' => 'customers#home', as: :home_customers
 
-  resource :customers
+  
+  resource :sessions, only: [:new, :create, :destroy]
+  
+  # get 'customers/index' => 'customers#index', as: :############
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -73,5 +78,5 @@ Rails.application.routes.draw do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
-  #   end
+  
 end

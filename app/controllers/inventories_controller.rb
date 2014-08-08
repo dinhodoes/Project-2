@@ -1,12 +1,17 @@
 class InventoriesController < ApplicationController
+  # before_action :check_admin, only: [:new, :edit, :create, :destroy, :update] for admin use
+
   def index
     @inventories = Inventory.all
   end
 
   def edit
+    
   end
 
   def update
+    @inventory = Inventory.new
+    redirect_to update_inventories_path
   end
 
   # Sample URL getting here: http://localhost:3000/inventories/097c4d9a7134be087f234
@@ -29,4 +34,13 @@ class InventoriesController < ApplicationController
       redirect_to inventories_path
     end
   end
+
+  # private
+
+  # def check_admin
+  #   unless curent_customer && current_customer.is_admin
+  #     redirect_to customer_path 
+  #   end
+  # end
+
 end

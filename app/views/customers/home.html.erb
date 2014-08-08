@@ -1,0 +1,14 @@
+<h1>Customer Profile</h1>
+
+Hi, <% @current_customer %>
+
+<ul>
+
+	<li><%= link_to "Place Order", new_sessions_path if !@is_login %></li>  <!-- might do w/o "if !@is_login" -->
+
+	<li><%= link_to "Edit Order", new_sessions_path if !@is_login %></li>
+
+	<li><%= link_to "Cancel Order", new_sessions_path if !@is_login %></li>
+
+</ul>
+

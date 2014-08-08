@@ -1,8 +1,11 @@
-<h1>Inventories#new</h1>
-<p>Find me in app/views/inventories/new.html.erb</p>
+<h1>Inventories</h1>
+
 
 <%= form_for @inventory do |f| %>
- <%= f.text_field :name %>
- <%= f.text_field :qty_on_hand %>
+ <%= f.text_field :name, placeholder: "Kringle Flavor"%>
+ <%= f.text_field :qty_on_hand, placeholder: "Quantity" %>
  <%= f.submit %>
+<%= form_for @inventory do |f| %>
+  hello <%= f.check_box :subscribe, {checked: true} %>
+  <% end %>
 <% end %>

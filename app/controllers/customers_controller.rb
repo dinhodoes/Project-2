@@ -1,4 +1,9 @@
 class CustomersController < ApplicationController
+  
+  def home
+    
+  end
+
   def index
     @customers = Customer.all
   end
@@ -12,7 +17,10 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(params.require(:customer).permit(:name, :email, :address, :password, :password_confirmation))
     if @customer.save
+      session[:customer_id] = @customer.id.to_s
       redirect_to customers_path
+    else
+      redirect_to new_customer_path
     end
   end
 
