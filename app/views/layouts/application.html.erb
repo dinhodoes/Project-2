@@ -9,9 +9,27 @@
 <body>
 
 
-<%= render 'partials/nav' %>
+	<%= render 'partials/nav' %>
 
-<%= yield %>
+	<%= yield %>
+
+	<% if current_customer %> 
+		Hi, <%= current_customer.name %>   <!-- not showing customer name -->
+
+		<%= link_to "Log Out", sessions_path, method: :delete %>
+
+	<% else %>
+
+		<%= link_to "Sign Up!", customers_new_path %>
+		<%= link_to "Log In", new_sessions_path %>  
+	
+	<% end %>
+
+	
+	
+
+
+
 
 
 

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
-
+  #Root Route
   root 'customers#index'
 
-
+  #Inventory Routes
   get 'inventories' => 'inventories#index', as: :inventories
   get 'inventories/:id/edit' => 'inventories#edit', as: :edit_inventory
   put 'inventories/:id' => 'inventories#update'
@@ -12,16 +12,24 @@ Rails.application.routes.draw do
   get 'inventories/new' => 'inventories#new', as: :new_inventory
   post 'inventories' => 'inventories#create'
   
-  # resources :customers
-  get 'customers' => 'customers#index'
+  #Customer Routes
+  get 'customers/' => 'customers#index' 
   get 'customers/new' => 'customers#new'
   post 'customers' => 'customers#create'
   get 'customers/home' => 'customers#home', as: :home_customers
 
-  
+
+  #Session Routes
   resource :sessions, only: [:new, :create, :destroy]
   
-  # get 'customers/index' => 'customers#index', as: :############
+  #Order Routes
+  get 'orders/new' => 'orders#new'
+  resource :orders, only: [:new, :create, :destroy, :edit]
+
+
+
+
+
 
 
 
