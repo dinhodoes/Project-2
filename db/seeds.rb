@@ -3,5 +3,9 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# orders = Order.create([{date_select: "Chicago", pickup_loc: "Copenhagen", quantity: 3, flavor: "almond"}])
+
+# Mayor.create(name: 'Emanuel', city: cities.first)
+
+Customer.create(first_name: 'Jordan', last_name: 'Hardy', email: 'jahardy34@gmail.com', address: '228 W. Grant Village', password: 'hambone0', is_admin: true)
+

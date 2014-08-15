@@ -13,14 +13,14 @@ class CustomersController < ApplicationController
     @customer = Customer.new
     @is_signup = true
   end
-  # Actually build the user
+
   def create
-    @customer = Customer.new(params.require(:customer).permit(:name, :email, :address, :password, :password_confirmation))
+    @customer = Customer.new(params.require(:customer).permit(:first_name, :last_name, :email, :address, :password, :password_confirmation))
     if @customer.save
       session[:customer_id] = @customer.id.to_s
-      redirect_to customers_path
+      redirect_to home_customers_path
     else
-      redirect_to new_customer_path
+      render 'new'
     end
   end
 

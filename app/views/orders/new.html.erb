@@ -1,1 +1,27 @@
 <h1>Place Order</h1>
+
+<% if @order.errors.any? %>  <!--Tyr to place error messages inside form. Hipchat if you get it -->
+
+	<% @order.errors.full_messages.each do |value| %>	
+		<div class="alert alert-danger" role="alert">
+			<%= value %>
+		</div> 
+	<% end %>
+		
+
+<% end %> 
+
+
+
+	<%= form_for @order do |f| %>
+	<%= f.hidden_field :customer_id, :value => current_customer.id %>
+	<%= f.text_field :first_name, placeholder: "First Name" %>
+	<%= f.text_field :last_name, placeholder: "Last Name" %>
+	<%= f.text_field :date_select, placeholder: "Date of Order" %>
+	<%= f.text_field :quantity, placeholder: "Quantity" %>
+	<%= f.text_field :flavor, placeholder: "Flavor" %>
+	<%= f.submit %>
+
+<% end %>
+
+

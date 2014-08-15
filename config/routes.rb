@@ -17,14 +17,23 @@ Rails.application.routes.draw do
   get 'customers/new' => 'customers#new'
   post 'customers' => 'customers#create'
   get 'customers/home' => 'customers#home', as: :home_customers
-
+  # resources :customers
 
   #Session Routes
   resource :sessions, only: [:new, :create, :destroy]
-  
+  delete 'sessions/new' => 'sessions#destroy'
+
   #Order Routes
+  
+  get 'orders' => 'orders#index'
   get 'orders/new' => 'orders#new'
-  resource :orders, only: [:new, :create, :destroy, :edit]
+  get 'orders/edit' => 'orders#edit'
+  get 'orders/:id' => 'orders#show' 
+  post 'orders' => 'orders#create' #???
+  
+
+  resource :orders
+  # , only: [:new, :create, :destroy, :edit]
 
 
 

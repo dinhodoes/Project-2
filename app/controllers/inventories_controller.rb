@@ -1,5 +1,5 @@
 class InventoriesController < ApplicationController
-  # before_action :check_admin, only: [:new, :edit, :create, :destroy, :update] for admin use
+  before_action :check_admin, only: [:new, :edit, :create, :destroy, :update] 
 
   def index
     @inventories = Inventory.all
@@ -35,12 +35,12 @@ class InventoriesController < ApplicationController
     end
   end
 
-  # private
+  private
 
-  # def check_admin
-  #   unless curent_customer && current_customer.is_admin
-  #     redirect_to customer_path 
-  #   end
-  # end
+  def check_admin
+    unless current_customer && current_customer.is_admin
+      redirect_to home_customers_path 
+    end
+  end
 
 end

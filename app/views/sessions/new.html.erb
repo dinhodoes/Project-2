@@ -1,9 +1,21 @@
-		
- <h1>Log in</h1>
+<h1>Log In</h1>
  
- 	<%= form_for @customer, {url:sessions_path} do |f| %>	
+ 	
+
+ 	<%= form_for :customer, {url:sessions_path} do |f| %>	
 	<%= f.text_field :email, placeholder: "Email Address" %>
 	<%= f.password_field :password, placeholder: "Password" %>
 	<%= f.submit %>
 
+
 <% end %>
+
+
+</br>
+<div class="col-md-4">
+	<% flash.each do |key, value| %>
+		<div class="alert alert-danger"><%= value %></div>
+
+	<% end %>
+
+</div>

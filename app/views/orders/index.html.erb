@@ -1,0 +1,9 @@
+<h1>Order History</h1>
+
+<% @orders.each do |o| %>
+	<li>	
+		<%= o.first_name %>
+		<%= o.last_name %>
+		<%= o.date_select %> -- <%= link_to "Order Details", orders_path(o) %> 	
+	</li>
+<% end %>
