@@ -3,7 +3,7 @@ class Order
 
   field :first_name, type: String
   field :last_name, type: String
-  field :date_select, type: String # change field type
+  field :date_select, type: Date
   field :quantity, type: Integer
   field :flavor, type: String 
 

@@ -1,15 +1,46 @@
+
+<style type="text/css">
+	
+	body {
+		background-image:url('/assets/logo.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+
+	}	
+
+	h1 {
+		color: white;
+	}
+
+	p {
+		color: white;
+	}
+
+
+</style>
+
+
+
 <h1>Hi, <%= current_customer.first_name %>!</h1>
 
 
 	
 <ul>
 
-	<li><%= link_to "Place Order", new_orders_path %></li>  <!-- might do w/o "if !@is_login" -->
+	<li><%= link_to "Place Order", new_orders_path %></li>  
+
+	<li><%= link_to "View Orders", orders_path %></li>
 
 	<li><%= link_to "Edit Order", edit_orders_path %></li>
 
-	<li><%= link_to "Cancel Order", new_sessions_path %></li> 
+
+	</br>
+
+
+	<% if current_customer && current_customer.is_admin %>
+
+		<li><%= link_to "Inventory", inventories_path %></li>
+
+	<% end %>
 
 </ul>
-
-

@@ -14,8 +14,6 @@ class InventoriesController < ApplicationController
     redirect_to update_inventories_path
   end
 
-  # Sample URL getting here: http://localhost:3000/inventories/097c4d9a7134be087f234
-  # HTTP verb (or method) that gets us here is ........ DELETE
   def destroy
     Inventory.find(params[:id]).destroy
     redirect_to inventories_path

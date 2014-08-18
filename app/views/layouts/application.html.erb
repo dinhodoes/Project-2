@@ -6,37 +6,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body>
+	
 
 	<%= render 'partials/nav' %>
 
 	<%= yield %>
 
-	<!-- </br>
-
-
-
-	<% if current_customer %> 
-		
-		<%= link_to "Log Out", sessions_path, method: :delete %>
-
-	<% else %>
-
-		<%= link_to "Sign Up!", customers_new_path %>
-		<%= link_to "Log In", new_sessions_path %>  
-	
-	<% end %>
-
-	
-	 -->
-
-
-
-
-
 
 
 </body>
+
 </html>
 

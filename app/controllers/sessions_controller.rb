@@ -1,9 +1,11 @@
 
 class SessionsController < ApplicationController
+	
 	def new
 		# Present an empty login form
 		@customer = Customer.new
 		@is_login = true
+			
 	end
 
 	def create

@@ -1,9 +1,21 @@
+<style type="text/css">
+	body {
+		background-color: #5BC0DE;
+	}
+</style>
+
 <h1>Order History</h1>
 
-<% @orders.each do |o| %>
-	<li>	
-		<%= o.first_name %>
-		<%= o.last_name %>
-		<%= o.date_select %> -- <%= link_to "Order Details", orders_path(o) %> 	
-	</li>
-<% end %>
+
+<div class="form-group col-md-4">
+	<% @orders.each do |o| %>
+		<li>	
+			<%= o.first_name %>
+			<%= o.last_name %>
+			<%= o.date_select %> -- <%= link_to "Details", customer_path(o) %> /
+			<%= link_to "Cancel Order", cancel_path(o), method: :delete %>	
+		</li>
+	<% end %>
+</div>
+</br>
+<%= link_to "Back to home", home_customers_path %>

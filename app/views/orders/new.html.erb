@@ -1,3 +1,9 @@
+<style type="text/css">
+  body {
+    background-color: #5BC0DE;
+  }
+</style>
+
 <h1>Place Order</h1>
 
 <% if @order.errors.any? %>  <!--Tyr to place error messages inside form. Hipchat if you get it -->
@@ -11,17 +17,47 @@
 
 <% end %> 
 
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Place Order
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Order details</h4>
+      </div>
+      <div class="modal-body">
 
 
 	<%= form_for @order do |f| %>
+
 	<%= f.hidden_field :customer_id, :value => current_customer.id %>
-	<%= f.text_field :first_name, placeholder: "First Name" %>
-	<%= f.text_field :last_name, placeholder: "Last Name" %>
-	<%= f.text_field :date_select, placeholder: "Date of Order" %>
-	<%= f.text_field :quantity, placeholder: "Quantity" %>
-	<%= f.text_field :flavor, placeholder: "Flavor" %>
-	<%= f.submit %>
+	<%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+	<%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+	<%= f.date_field :date_select, placeholder: "Date of Order", class: "form-control" %>
+	<%= f.text_field :quantity, placeholder: "Quantity", class: "form-control" %>
+	<%= f.text_field :flavor, placeholder: "Flavor", class: "form-control" %>
+	
+  </br>
+
+  <%= f.submit %>
+
+<!-- </div> -->
+
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary"><%#= f.submit %></button> -->
+      </div>
+    </div>
+  </div>
+</div>
 
 <% end %>
 
+<%= link_to "Back to home", home_customers_path %>
 

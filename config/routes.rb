@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   #Inventory Routes
   get 'inventories' => 'inventories#index', as: :inventories
   get 'inventories/:id/edit' => 'inventories#edit', as: :edit_inventory
+  get 'inventories/new' => 'inventories#new', as: :new_inventory
   put 'inventories/:id' => 'inventories#update'
   patch 'inventories/:id' => 'inventories#update', as: :udpate_inventory
   delete 'inventories/:id' => 'inventories#destroy', as: :inventory
-  get 'inventories/new' => 'inventories#new', as: :new_inventory
   post 'inventories' => 'inventories#create'
   
   #Customer Routes
@@ -17,19 +17,18 @@ Rails.application.routes.draw do
   get 'customers/new' => 'customers#new'
   post 'customers' => 'customers#create'
   get 'customers/home' => 'customers#home', as: :home_customers
-  # resources :customers
 
   #Session Routes
   resource :sessions, only: [:new, :create, :destroy]
   delete 'sessions/new' => 'sessions#destroy'
 
   #Order Routes
-  
   get 'orders' => 'orders#index'
   get 'orders/new' => 'orders#new'
   get 'orders/edit' => 'orders#edit'
-  get 'orders/:id' => 'orders#show' 
-  post 'orders' => 'orders#create' #???
+  get 'orders/:id' => 'orders#show', as: :customer
+  post 'orders' => 'orders#create' 
+  delete 'orders/:id' => 'orders#destroy', as: :cancel
   
 
   resource :orders

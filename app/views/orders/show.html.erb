@@ -1,2 +1,37 @@
-<h1>Show</h1>
+<style type="text/css">
+	body {
+		background-color: #5BC0DE;
+	}
+</style>
 
+<h1>Order</h1>
+</br>
+<style type="text/css">
+	
+	.view {
+		text-align: center;
+		display: inline;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	li {
+		color: green;
+	}
+
+</style>
+
+<div class="view order">
+
+		<li><strong>Pick-up First:</strong>    <%= @order.first_name %></li>
+		<li><strong>Pick-up Last:</strong>     <%= @order.last_name %></li>
+		<li><strong>Pick-up Date:</strong>     <%= @order.date_select %></li>
+		<li><strong>Quantity:</strong>     	   <%= @order.quantity %></li>
+		<li><strong>Flavor:</strong>           <%= @order.flavor %></li>
+		
+
+</div>
+
+<%= link_to "Back to home", home_customers_path %>
