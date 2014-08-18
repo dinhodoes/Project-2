@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 		# Present an empty login form
 		@customer = Customer.new
 		@is_login = true
+		redirect_to home_customers_path(current_customer) if current_customer
 			
 	end
 
